@@ -1,3 +1,7 @@
+" Allow buffers to be edited without being saved. Especially powerful with
+" powerline.
+set hidden
+
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
 
