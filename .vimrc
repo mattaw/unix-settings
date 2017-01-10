@@ -1,3 +1,5 @@
+" Install vim-plug
+
 " Allow buffers to be edited without being saved. Especially powerful with
 " powerline.
 set hidden
