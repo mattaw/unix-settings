@@ -117,17 +117,22 @@ if ! shopt -oq posix; then
 fi
 
 # My customizations. Held in git repo. 
-# Install powerline python3-powerline. 
-# git clone base16-shell base16-gnome-terminal
+
+export PATH=$PATH:~/.local/bin/
+
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Powerline
-# pip install powerline-status
 #if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
 #  source /usr/share/powerline/bindings/bash/powerline.sh
 #fi
-if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
+if [ -f /home/dynamo/b/maswabey/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh ]; then
+	powerline-daemon -q
+	POWERLINE_BASH_CONTINUATION=1
+	POWERLINE_BASH_SELECT=1
+	source /home/dynamo/b/maswabey/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh
+elif [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
   /usr/local/bin/powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
