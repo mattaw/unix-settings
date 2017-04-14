@@ -44,6 +44,7 @@ Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
+" Fix broken old gnome-terminals that don't report 256 color support.
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
@@ -54,7 +55,6 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 "Powerline
-" pip install powerline-status
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
@@ -63,5 +63,4 @@ set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 autocmd Filetype tex setlocal spell spelllang=en_us
-
 
