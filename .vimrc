@@ -44,6 +44,10 @@ Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
+
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -59,4 +63,5 @@ set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 autocmd Filetype tex setlocal spell spelllang=en_us
+
 
