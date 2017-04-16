@@ -116,10 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# My customizations. Held in git repo. 
+# My customizations. Held in git repo.
 
 #Needed for the local powerline install
-export PATH=$PATH:~/.local/bin/
+export PATH="$PATH:$HOME/.local/bin/"
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
@@ -129,12 +129,17 @@ if [ -f /lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; the
 	powerline-daemon -q
 	POWERLINE_BASH_CONTINUATION=1
 	POWERLINE_BASH_SELECT=1
-	source /lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh 
-elif [ -f ~/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh ]; then
+	source /lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+elif [ -f $HOME/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
 	powerline-daemon -q
 	POWERLINE_BASH_CONTINUATION=1
 	POWERLINE_BASH_SELECT=1
-	source ~/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh
+	source $HOME/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+elif [ -f $HOME/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh ]; then
+	powerline-daemon -q
+	POWERLINE_BASH_CONTINUATION=1
+	POWERLINE_BASH_SELECT=1
+	source $HOME/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh
 elif [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
   /usr/local/bin/powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
