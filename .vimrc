@@ -50,8 +50,6 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 if filereadable(expand("~/.vimrc_background"))
-  set t_Co=256
-  let base16colorspace=256
   source ~/.vimrc_background
 endif
 
