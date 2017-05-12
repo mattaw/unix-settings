@@ -53,10 +53,16 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
+if has('python')
+  command! -nargs=* Py python <args>
+else
+  command! -nargs=* Py python3 <args>
+endif
+
 "Powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+Py from powerline.vim import setup as powerline_setup
+Py powerline_setup()
+Py del powerline_setup
 set laststatus=2
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
