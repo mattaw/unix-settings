@@ -130,25 +130,25 @@ if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
 	POWERLINE_BASH_CONTINUATION=1
 	POWERLINE_BASH_SELECT=1
 	source /usr/share/powerline/bindings/bash/powerline.sh
-elif [ -f /lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
+elif [ -f /usr/local/lib/python?.?/site-packages/powerline/bindings/bash/powerline.sh ]; then
 	powerline-daemon -q
 	POWERLINE_BASH_CONTINUATION=1
 	POWERLINE_BASH_SELECT=1
-	source /lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-elif [ -f $HOME/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
+	source /usr/local/lib/python?.?/site-packages/powerline/bindings/bash/powerline.sh
+elif [ -f $HOME/.local/lib/python?.?/site-packages/powerline/bindings/bash/powerline.sh ]; then
 	powerline-daemon -q
 	POWERLINE_BASH_CONTINUATION=1
 	POWERLINE_BASH_SELECT=1
-	source $HOME/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-elif [ -f $HOME/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh ]; then
-	powerline-daemon -q
-	POWERLINE_BASH_CONTINUATION=1
-	POWERLINE_BASH_SELECT=1
-	source $HOME/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh
-elif [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
-  /usr/local/bin/powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+	source $HOME/.local/lib/python?.?/site-packages/powerline/bindings/bash/powerline.sh
+#elif [ -f $HOME/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh ]; then
+#	powerline-daemon -q
+#	POWERLINE_BASH_CONTINUATION=1
+#	POWERLINE_BASH_SELECT=1
+#	source $HOME/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh
+#elif [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
+#  /usr/local/bin/powerline-daemon -q
+#  POWERLINE_BASH_CONTINUATION=1
+#  POWERLINE_BASH_SELECT=1
+#  source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
 fi
 
