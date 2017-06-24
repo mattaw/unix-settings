@@ -125,21 +125,26 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Powerline
-if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
+if [ -f $HOME/.local/lib/python?.?/site-packages/powerline/bindings/bash/powerline.sh ]; then
+	powerline-daemon -q
+	POWERLINE_BASH_CONTINUATION=1
+	POWERLINE_BASH_SELECT=1
+	source $HOME/.local/lib/python?.?/site-packages/powerline/bindings/bash/powerline.sh
+elif [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
 	powerline-daemon -q
 	POWERLINE_BASH_CONTINUATION=1
 	POWERLINE_BASH_SELECT=1
 	source /usr/share/powerline/bindings/bash/powerline.sh
+elif [ -f /usr/lib/python?.?/????-packages/powerline/bindings/bash/powerline.sh ]; then
+	powerline-daemon -q
+	POWERLINE_BASH_CONTINUATION=1
+	POWERLINE_BASH_SELECT=1
+	source /usr/lib/python?.?/????-packages/powerline/bindings/bash/powerline.sh
 elif [ -f /usr/local/lib/python?.?/????-packages/powerline/bindings/bash/powerline.sh ]; then
 	powerline-daemon -q
 	POWERLINE_BASH_CONTINUATION=1
 	POWERLINE_BASH_SELECT=1
 	source /usr/local/lib/python?.?/????-packages/powerline/bindings/bash/powerline.sh
-elif [ -f $HOME/.local/lib/python?.?/site-packages/powerline/bindings/bash/powerline.sh ]; then
-	powerline-daemon -q
-	POWERLINE_BASH_CONTINUATION=1
-	POWERLINE_BASH_SELECT=1
-	source $HOME/.local/lib/python?.?/site-packages/powerline/bindings/bash/powerline.sh
 #elif [ -f $HOME/.local/lib/python2.6/site-packages/powerline/bindings/bash/powerline.sh ]; then
 #	powerline-daemon -q
 #	POWERLINE_BASH_CONTINUATION=1

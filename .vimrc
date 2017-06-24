@@ -53,10 +53,10 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-if has('python')
-  command! -nargs=* Py python <args>
-else
+if has('python3')
   command! -nargs=* Py python3 <args>
+else
+  command! -nargs=* Py python <args>
 endif
 
 "Powerline
