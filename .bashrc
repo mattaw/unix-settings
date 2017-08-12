@@ -157,3 +157,9 @@ elif [ -f /usr/local/lib/python${PYTHON_VER}/????-packages/powerline/bindings/ba
   source /usr/local/lib/python${PYTHON_VER}/????-packages/powerline/bindings/bash/powerline.sh
 fi
 
+# User customization - watch out for innovus vs. genus order!
+if [ -f $HOME/.bashrc_local ]; then
+    . $HOME/.bashrc_local
+fi
+
+
