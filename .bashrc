@@ -132,6 +132,11 @@ elif hash python 2>/dev/null; then
 fi
 PYTHON_VER=`${PYTHON} -c "import sys;t='{v[0]}.{v[1]}'.format(v=list(sys.version_info[:2]));sys.stdout.write(t)";`
 
+# Set default editor to vim
+export EDITOR='vim'
+export VISUAL='vim'
+
+
 # Powerline. Looks in most useful places and picks the python version the system is running.
 if [ -f ${HOME}/.local/lib/python${PYTHON_VER}/site-packages/powerline/bindings/bash/powerline.sh ]; then
   PATH=${HOME}/.local/bin:${PATH}
