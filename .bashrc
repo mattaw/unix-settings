@@ -124,45 +124,27 @@ export PATH="$PATH:$HOME/.local/bin/"
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-# What python version are we running? Try to use python3 if possible.
-if hash python3 2>/dev/null; then
-  PYTHON="python3"
-elif hash python 2>/dev/null; then
-  PYTHON="python"
-fi
-PYTHON_VER=`${PYTHON} -c "import sys;t='{v[0]}.{v[1]}'.format(v=list(sys.version_info[:2]));sys.stdout.write(t)";`
-
 # Set default editor to vim
 export EDITOR='vim'
 export VISUAL='vim'
 
+# Moved this to .bashrc_local as the autodetection of which version of Python vim is compiled with and then
+#  cleanly detecting the location of powerline on the system was too much of a pain in the rear.
 
-# Powerline. Looks in most useful places and picks the python version the system is running.
-if [ -f ${HOME}/.local/lib/python${PYTHON_VER}/site-packages/powerline/bindings/bash/powerline.sh ]; then
-  PATH=${HOME}/.local/bin:${PATH}
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  source ${HOME}/.local/lib/python${PYTHON_VER}/site-packages/powerline/bindings/bash/powerline.sh
-elif [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
-  PATH=/usr/share/bin:${PATH}
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  source /usr/share/powerline/bindings/bash/powerline.sh
-elif [ -f /usr/lib/python${PYTHON_VER}/????-packages/powerline/bindings/bash/powerline.sh ]; then
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  source /usr/lib/python${PYTHON_VER}/????-packages/powerline/bindings/bash/powerline.sh
-elif [ -f /usr/local/lib/python${PYTHON_VER}/????-packages/powerline/bindings/bash/powerline.sh ]; then
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  source /usr/local/lib/python${PYTHON_VER}/????-packages/powerline/bindings/bash/powerline.sh
-fi
+# Examples of where to look for the version of powerline that was installed:
+#  PATH=${HOME}/.local/bin:${PATH}
+#  powerline-daemon -q
+#  POWERLINE_BASH_CONTINUATION=1
+#  POWERLINE_BASH_SELECT=1
+#  source ${HOME}/.local/lib/python${PYTHON_VER}/site-packages/powerline/bindings/bash/powerline.sh
 
-# User customization - watch out for innovus vs. genus order!
+# Example locations of the tools:
+# ${HOME}/.local/lib/python${PYTHON_VER}/site-packages/powerline/bindings/bash/powerline.sh
+# /usr/share/powerline/bindings/bash/powerline.sh
+# /usr/lib/python${PYTHON_VER}/????-packages/powerline/bindings/bash/powerline.sh
+# /usr/local/lib/python${PYTHON_VER}/????-packages/powerline/bindings/bash/powerline.sh
+
+# User customization
 if [ -f $HOME/.bashrc_local ]; then
     . $HOME/.bashrc_local
 fi
