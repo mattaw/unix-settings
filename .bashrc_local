@@ -1,9 +1,5 @@
 
-<<Block_comment
-if [ -r ~/.bashrc_local ]; then
-  source ~/.bashrc_local
-fi
-Block_comment
+PATH=$HOME/.local/bin:$PATH
 
 # Set base16 shell colors
 BASE16_SHELL=$HOME/.config/base16-shell/
